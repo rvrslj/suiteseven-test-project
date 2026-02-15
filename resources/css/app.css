@@ -13,11 +13,6 @@
   --hover-color: #0073aa;
 }
 
-p { color: purple; }
-#loremipsum { font-size: 20px; }
-.ilja { color: blue; margin-left: 10px; }
-.robert { font-weight: bold; }
-
 /* --- Navigation & Mega Menu Logic --- */
 @media (min-width: 960px) {
 
@@ -38,8 +33,7 @@ p { color: purple; }
   }
 
   /* 2. TOP-LEVEL (BAR) STYLING */
-  .nav-primary ul > li > a,
-  ul.menu > li > a {
+  .nav-primary ul > li > a, ul.menu > li > a {
     display: block;
     padding: 15px 20px;
     text-decoration: none !important;
@@ -51,23 +45,16 @@ p { color: purple; }
     font-weight: var(--nav-bold) !important;
   }
 
-  /* THE ARROW FIX: Targeted specifically to the top-level link */
-  /* This ensures the arrow shows up ONLY on the bar item */
+  /* ARROWS: Added ONLY to mega-menu top-level items */
+  /* This uses the direct child selector to avoid arrows inside the dropdown */
   li.mega-menu > a::after {
     content: var(--arrow-icon) !important;
-    display: inline-block !important;
     font-size: 9px;
-    margin-left: 6px;
-    opacity: 0.7;
+    margin-left: 5px;
+    display: inline-block;
     vertical-align: middle;
-    /* Ensure it doesn't inherit 'none' from elsewhere */
-    visibility: visible !important;
-  }
-
-  /* Stable Hover */
-  li.mega-menu:hover > a::after {
-    opacity: 1;
-    transform: none !important;
+    opacity: 0.7;
+    transition: opacity 0.2s;
   }
 
   /* 3. THE DROP DOWN (MEGA MENU) */
@@ -89,15 +76,29 @@ p { color: purple; }
     z-index: 999;
 
     /* Transition Logic */
-    visibility: hidden; opacity: 0;
+    visibility: hidden;
+    opacity: 0;
     transform: translateY(10px);
     transition: all 0.3s ease;
     pointer-events: none;
   }
 
+  /* THE HOVER BRIDGE: This fills the 'dead zone' between the bar and the menu */
+  li.mega-menu > ul::before {
+    content: "";
+    position: absolute;
+    top: -20px; /* Reaches up to the nav bar */
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: transparent;
+  }
+
   li.mega-menu:hover > ul {
-    visibility: visible; opacity: 1;
-    transform: translateY(0); pointer-events: auto;
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
   }
 
   /* 4. COLUMNS & ALIGNMENT (Symmetrical & Flush Left) */
