@@ -1,3 +1,20 @@
 @import "tailwindcss" theme(static);
 @source "../views/";
 @source "../../app/";
+
+p {
+    color: purple;
+}
+
+#loremipsum {
+    font-size: 20px;
+}
+
+.ilja {
+    color: blue;
+    margin-left: 10px;
+}
+
+.robert {
+    font-weight: bold;
+}
