@@ -18,84 +18,124 @@ p {
 .robert {
     font-weight: bold;
 }
-/* Only apply mega menu styles to screens larger than 960px */
 @media (min-width: 960px) {
-
-  /* 1. Ensure the parent container doesn't clip the dropdown */
-  .nav-menu {
+  /* 1. THE BAR: Parent Permissions */
+  /* This ensures the dropdown isn't "cut off" by the header container */
+  .nav-primary, .nav-menu, header, .banner {
+    overflow: visible !important;
     position: relative;
+    z-index: 100;
   }
 
-  /* 2. Setup the full-width dropdown container */
-  .mega-menu > ul {
-    position: absolute;
-    left: 0;
-    right: 0;
-    width: 100vw;
-    /* Centers the menu relative to the viewport if needed */
-    margin-left: calc(-50vw + 50%);
-    background: #ffffff;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    padding: 30px;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  /* Force Horizontal Layout for the Bar */
+  .nav-primary ul,
+  .nav-menu ul,
+  #menu-primary-navigation,
+  ul.menu {
+    display: flex !important;
+    flex-direction: row !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    align-items: center;
+  }
 
-    /* Hiding it initially */
+  /* 2. TOP-LEVEL STYLING: Boldness & Arrows */
+  .nav-primary ul > li > a {
+    display: block;
+    padding: 15px 20px;
+    transition: color 0.2s, font-weight 0.2s;
+  }
+
+  /* Boldness on Hover */
+  ul.menu > li.mega-menu:hover > a,
+  .nav-primary ul > li.mega-menu:hover > a {
+    font-weight: 700 !important;
+  }
+
+  /* Arrows: Top-level Only */
+  ul.menu > li.mega-menu > a::after,
+  ul.menu > li.menu-item-has-children > a::after {
+    content: ' ▼';
+    font-size: 9px;
+    margin-left: 5px;
+    display: inline-block;
+    transition: transform 0.3s;
+    opacity: 0.7;
+  }
+
+  ul.menu > li:hover > a::after {
+    transform: rotate(180deg);
+  }
+
+  /* 3. THE MEGA MENU: Container & Layout */
+  li.mega-menu {
+    position: static !important; /* Spans full width of the nav bar */
+  }
+
+  li.mega-menu > ul {
+    /* Layout: Columns side-by-side */
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 30px;
+
+    /* Positioning */
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+
+    /* Appearance */
+    background: #ffffff !important;
+    padding: 40px !important;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    z-index: 999 !important;
+
+    /* Hiding/Reveal Logic */
     visibility: hidden;
     opacity: 0;
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
     transform: translateY(10px);
-    z-index: 999;
+    transition: all 0.3s ease;
   }
 
-  /* 3. Reveal on hover */
-  .mega-menu:hover > ul {
+  li.mega-menu:hover > ul {
     visibility: visible;
     opacity: 1;
+    pointer-events: auto;
     transform: translateY(0);
   }
 
-  /* 4. Column Styling */
-  .mega-menu > ul > li {
+  /* 4. THE DROPDOWN COLUMNS: Vertical Stacking */
+  /* Targets the column wrapper */
+  li.mega-menu > ul > li {
     flex: 1;
-    list-style: none;
-    padding: 0 20px;
+    display: flex !important;
+    flex-direction: column !important; /* Header on top of links */
+    list-style: none !important;
   }
 
-  /* 5. Bold Title for Columns */
-  .mega-menu > ul > li > a {
-    font-weight: 700;
+  /* Column Headers: Always Bold */
+  li.mega-menu > ul > li > a {
+    font-weight: 700 !important;
+    margin-bottom: 12px !important;
     text-transform: uppercase;
-    font-size: 14px;
-    letter-spacing: 1px;
-    display: block;
-    margin-bottom: 15px;
-    color: #222;
-    border-bottom: 2px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
     padding-bottom: 5px;
   }
 
-  /* 6. Sub-links Styling */
-  .mega-menu ul ul {
-    padding: 0;
-    margin: 0;
-    display: block !important; /* Overrides any theme 'hide' logic */
+  /* Column Links: Vertical List */
+  li.mega-menu > ul > li ul {
+    display: flex !important;
+    flex-direction: column !important; /* Stack sub-links */
+    padding: 0 !important;
+    margin: 0 !important;
+    list-style: none !important;
   }
 
-  .mega-menu ul ul li {
-    list-style: none;
-    margin-bottom: 8px;
-  }
-
-  .mega-menu ul ul li a {
-    font-weight: 400;
-    color: #555;
-    transition: color 0.2s;
-  }
-
-  .mega-menu ul ul li a:hover {
-    color: #0073aa;
-    padding-left: 5px; /* Subtle hover effect */
+  li.mega-menu > ul > li ul li a {
+    font-weight: 400 !important; /* Ensure sub-links aren't bold by default */
+    padding: 5px 0;
   }
 }
