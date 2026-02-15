@@ -23,7 +23,7 @@
     align-items: center;
   }
 
-  /* 2. TOP-LEVEL LINKS: Boldness & Arrow Fix */
+  /* 2. TOP-LEVEL LINKS: Boldness & Bar-Only Arrows */
   .nav-primary ul > li > a,
   ul.menu > li > a {
     display: block;
@@ -31,7 +31,6 @@
     text-decoration: none !important;
     border-bottom: 0 !important;
     transition: color 0.2s;
-    position: relative; /* Ensures the pseudo-element has a base */
   }
 
   /* Boldness on Hover */
@@ -39,20 +38,20 @@
     font-weight: 700 !important;
   }
 
-  /* ARROW LOGIC: Targeted specifically to the mega-menu class */
-  /* We use a space instead of > to be more flexible with theme nesting */
-  .mega-menu a:first-of-type::after {
+  /* ARROW LOGIC: Targeted strictly to the TOP-LEVEL link only */
+  /* The > ensures it doesn't leak into the sub-menu columns */
+  ul.menu > li.mega-menu > a::after,
+  .nav-primary ul > li.mega-menu > a::after {
     content: ' ▼';
     font-size: 9px;
     margin-left: 6px;
     display: inline-block;
     opacity: 0.7;
     vertical-align: middle;
-    text-decoration: none !important;
   }
 
-  /* Ensure arrow doesn't move or vanish on hover */
-  .mega-menu:hover a:first-of-type::after {
+  /* Stable Hover (No rotation) */
+  li.mega-menu:hover > a::after {
     opacity: 1;
     transform: none !important;
   }
