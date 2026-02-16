@@ -77,7 +77,7 @@
     font-family: Arial, sans-serif !important; /* Thin outline style */
     font-size: 18px;
     margin-left: 6px;
-    margin-top: -6px; /* Moves chevron up to stay level with 15px text */
+    margin-top: -8px; /* Moves chevron up to stay level with 15px text */
     color: var(--chevron-color) !important;
     line-height: 0;
     transition: none;
@@ -89,33 +89,42 @@
     transform: none !important;
   }
 
-  li.mega-menu { position: static !important; }
+  li.mega-menu {
+    position: static !important;
+  }
 
-  /* Mega Menu Dropdown Container */
+  /* --- FULL WIDTH BREAKOUT --- */
+  /* --- TRUE FULL-WIDTH BREAKOUT --- */
   li.mega-menu > ul {
-    position: absolute !important;
-    top: 100% !important;
-    left: 0; right: 0; width: 100%;
+    position: fixed !important; /* Changed from absolute to fixed */
+    top: auto !important;       /* Allows it to sit right under the header */
+    left: 0 !important;
+    right: 0 !important;
+    width: 100vw !important;
+
+    /* Ensure it doesn't inherit a smaller width from parents */
+    min-width: 100vw !important;
+
     display: flex !important;
     flex-direction: row !important;
-    justify-content: space-between;
+    justify-content: center;
     align-items: flex-start;
-    background: var(--mega-bg) !important;
-    padding: var(--mega-padding) !important;
-    padding-left: 10%;
-    padding-right: 10%;
-    box-shadow: var(--mega-shadow);
-    border-top: 1px solid var(--border-color);
-    z-index: 999;
+
+    background: #ffffff !important; /* Force white background */
+    padding: 60px 10% !important;
+    box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.1);
+    border-top: 1px solid #E5E7EB;
+    z-index: 99999 !important; /* High z-index to stay on top */
+
     visibility: hidden;
     opacity: 0;
-    transform: translateY(5px);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(10px);
+    transition: all 0.3s ease-in-out;
     pointer-events: none;
   }
 
-  li.mega-menu:hover > ul,
-  li.mega-menu:focus-within > ul {
+  /* Show menu on hover */
+  li.mega-menu:hover > ul {
     visibility: visible;
     opacity: 1;
     transform: translateY(0);
@@ -171,7 +180,7 @@
 
   /* Dropdown links hover (Back to Brand Gold) */
   li.mega-menu > ul > li ul li a:hover {
-    color: var(--color-brand-gold) !important;
-    transform: translateX(5px);
+    color: var(--link-color) !important;
+    font-weight: var(--header-font-weight) !important;
   }
 }
