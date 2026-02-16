@@ -25,9 +25,12 @@
     display: flex !important;
     flex-direction: row !important;
     align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
     list-style: none !important;
-    margin: 0 !important;
-    padding: 0 !important;
+    margin: 0 auto !important;
+    padding: 0 40px !important;
   }
 
   .nav-primary ul > li > a,
@@ -68,10 +71,13 @@
     left: 0; right: 0; width: 100%;
     display: flex !important;
     flex-direction: row !important;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: flex-start;
+    width: 100%;
     background: var(--mega-bg) !important;
     padding: var(--mega-padding) !important;
+    padding-left: 10%;
+    padding-right: 10%;
     box-shadow: var(--mega-shadow);
     border-top: 1px solid var(--border-color);
     z-index: 999;
@@ -87,11 +93,11 @@
   }
 
   li.mega-menu > ul > li {
-    flex: 0 1 auto;
+    flex: 1 1 0;
     display: flex !important;
     flex-direction: column !important;
     align-items: flex-start !important;
-    padding: 0 30px !important;
+    padding: 0 20px !important;
     list-style: none !important;
   }
 
