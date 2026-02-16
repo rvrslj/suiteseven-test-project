@@ -3,6 +3,7 @@
 @theme {
   --font-fira: "Fira Sans", sans-serif;
   --color-brand-gold: #C5A059;
+  --color-accent-gold: #C8AD00;
   --color-charcoal: #1A1A1A;
 }
 
@@ -14,16 +15,16 @@
   --mega-bg: #ffffff;
   --mega-shadow: 0px 20px 40px rgba(0, 0, 0, 0.08);
   --mega-padding: 30px 40px;
-  --arrow-icon: ' \e900';
   --link-color: var(--color-charcoal);
   --hover-color: var(--color-brand-gold);
+  --chevron-color: var(--color-accent-gold);
   --border-color: #E5E7EB;
 
   /* Typography Variables */
   --header-font-size: 20px;
-  --header-font-weight: 450; /* Book weight */
+  --header-font-weight: 450;
   --content-font-size: 18px;
-  --content-font-weight: 300; /* Light weight */
+  --content-font-weight: 300;
 }
 
 @media (min-width: 960px) {
@@ -48,7 +49,9 @@
 
   .nav-primary ul > li > a,
   ul.menu > li > a {
-    display: block;
+    /* Using flex here to align chevron in middle */
+    display: flex !important;
+    align-items: center;
     padding: 10px 18px;
     text-decoration: none !important;
     color: var(--link-color);
@@ -59,22 +62,27 @@
   }
 
   li.mega-menu:hover > a {
-    color: var(--hover-color) !important;
+    color: #000000 !important;
     font-weight: var(--nav-bold) !important;
   }
 
+  /* CHEVRON STYLE: Centered & #C8AD00 */
   li.mega-menu > a::after {
-    content: '▼' !important;
-    display: inline-block !important;
-    font-size: 8px;
-    margin-left: 8px;
-    transition: transform 0.3s ease;
-    vertical-align: middle;
+    content: '\2304' !important; /* Chevron down */
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px; /* Slightly larger for visual weight */
+    margin-left: 6px;
+    margin-top: -8px; /* Optical adjustment to hit vertical center */
+    color: var(--chevron-color) !important;
+    line-height: 0;
+    transition: color 0.3s ease;
   }
 
   li.mega-menu:hover > a::after {
-    transform: rotate(180deg);
-    color: var(--hover-color);
+    transform: none !important;
+    color: var(--chevron-color) !important;
   }
 
   li.mega-menu { position: static !important; }
@@ -119,18 +127,18 @@
     list-style: none !important;
   }
 
-  /* COLUMN HEADERS: Fira Sans 20 Book (No Caps, No Gold Line) */
+  /* COLUMN HEADERS: Fira Sans 20 Book */
   li.mega-menu > ul > li > a {
     font-family: var(--font-fira) !important;
     font-weight: var(--header-font-weight) !important;
     font-size: var(--header-font-size) !important;
-    text-transform: none !important; /* Removed Uppercase */
+    text-transform: none !important;
     letter-spacing: normal;
     color: var(--link-color);
     width: 100%;
     margin-bottom: 15px !important;
-    padding: 0 !important; /* Removed padding for border */
-    border-bottom: none !important; /* Removed Gold Line */
+    padding: 0 !important;
+    border-bottom: none !important;
     text-decoration: none !important;
     white-space: nowrap;
   }
