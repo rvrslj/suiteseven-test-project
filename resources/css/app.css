@@ -16,15 +16,15 @@
   --mega-shadow: 0px 20px 40px rgba(0, 0, 0, 0.08);
   --mega-padding: 30px 40px;
   --link-color: var(--color-charcoal);
-  --hover-color: var(--color-brand-gold);
   --chevron-color: var(--color-accent-gold);
   --border-color: #E5E7EB;
 
   /* Typography Variables */
   --header-font-size: 20px;
-  --header-font-weight: 450;
+  --header-font-weight: 450; /* Fira Sans Book */
   --content-font-size: 18px;
-  --content-font-weight: 300;
+  --content-font-weight: 300; /* Fira Sans Light */
+  --menu-font-size: 15px;
 }
 
 @media (min-width: 960px) {
@@ -47,42 +47,46 @@
     padding: 0 40px !important;
   }
 
+  /* --- MENU BAR TEXT STYLE --- */
   .nav-primary ul > li > a,
   ul.menu > li > a {
-    /* Using flex here to align chevron in middle */
-    display: flex !important;
-    align-items: center;
+    display: inline-flex !important;
+    align-items: center !important;
     padding: 10px 18px;
     text-decoration: none !important;
     color: var(--link-color);
     font-family: var(--font-fira);
-    font-size: 15px;
+    font-size: var(--menu-font-size);
     letter-spacing: 0.02em;
     transition: color 0.3s ease;
   }
 
-  li.mega-menu:hover > a {
+  /* --- GLOBAL HOVER: BLACK TEXT FOR ALL ITEMS --- */
+  .nav-primary ul > li:hover > a,
+  ul.menu > li:hover > a {
     color: #000000 !important;
     font-weight: var(--nav-bold) !important;
   }
 
-  /* CHEVRON STYLE: Centered & #C8AD00 */
+  /* --- CHEVRON: GOLD & LEVEL WITH TEXT --- */
   li.mega-menu > a::after {
-    content: '\2304' !important; /* Chevron down */
+    content: '\2304' !important;
     display: inline-flex !important;
     align-items: center;
     justify-content: center;
-    font-size: 18px; /* Slightly larger for visual weight */
+    font-family: Arial, sans-serif !important; /* Thin outline style */
+    font-size: 18px;
     margin-left: 6px;
-    margin-top: -8px; /* Optical adjustment to hit vertical center */
+    margin-top: -6px; /* Moves chevron up to stay level with 15px text */
     color: var(--chevron-color) !important;
     line-height: 0;
-    transition: color 0.3s ease;
+    transition: none;
   }
 
+  /* Keep chevron gold when text turns black */
   li.mega-menu:hover > a::after {
-    transform: none !important;
     color: var(--chevron-color) !important;
+    transform: none !important;
   }
 
   li.mega-menu { position: static !important; }
@@ -127,7 +131,7 @@
     list-style: none !important;
   }
 
-  /* COLUMN HEADERS: Fira Sans 20 Book */
+  /* --- COLUMN HEADERS: Fira Sans 20 Book --- */
   li.mega-menu > ul > li > a {
     font-family: var(--font-fira) !important;
     font-weight: var(--header-font-weight) !important;
@@ -152,7 +156,7 @@
     width: 100%;
   }
 
-  /* COLUMN CONTENT: Fira Sans Light 18 */
+  /* --- COLUMN CONTENT: Fira Sans Light 18 --- */
   li.mega-menu > ul > li ul li a {
     display: block !important;
     padding: 5px 0 !important;
@@ -165,8 +169,9 @@
     white-space: nowrap;
   }
 
+  /* Dropdown links hover (Back to Brand Gold) */
   li.mega-menu > ul > li ul li a:hover {
-    color: var(--hover-color);
+    color: var(--color-brand-gold) !important;
     transform: translateX(5px);
   }
 }
