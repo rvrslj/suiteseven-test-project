@@ -2,7 +2,6 @@
 @source "../views/";
 @source "../../app/";
 
-/* --- Project Variables & Utilities --- */
 :root {
   --nav-bold: 700;
   --mega-bg: #ffffff;
@@ -13,15 +12,8 @@
   --hover-color: #0073aa;
 }
 
-p { color: purple; }
-#loremipsum { font-size: 20px; }
-.ilja { color: blue; margin-left: 10px; }
-.robert { font-weight: bold; }
-
-/* --- Navigation & Mega Menu Logic --- */
 @media (min-width: 960px) {
 
-  /* 1. LAYOUT & PERMISSIONS */
   .nav-primary, .nav-menu, header, .banner {
     overflow: visible !important;
     position: relative;
@@ -37,7 +29,6 @@ p { color: purple; }
     padding: 0 !important;
   }
 
-  /* 2. TOP-LEVEL (BAR) STYLING */
   .nav-primary ul > li > a,
   ul.menu > li > a {
     display: block;
@@ -46,13 +37,10 @@ p { color: purple; }
     transition: color 0.2s;
   }
 
-  /* Boldness on Hover */
   li.mega-menu:hover > a {
     font-weight: var(--nav-bold) !important;
   }
 
-  /* THE ARROW FIX: Targeted specifically to the top-level link */
-  /* This ensures the arrow shows up ONLY on the bar item */
   li.mega-menu > a::after {
     content: var(--arrow-icon) !important;
     display: inline-block !important;
@@ -60,17 +48,14 @@ p { color: purple; }
     margin-left: 6px;
     opacity: 0.7;
     vertical-align: middle;
-    /* Ensure it doesn't inherit 'none' from elsewhere */
     visibility: visible !important;
   }
 
-  /* Stable Hover */
   li.mega-menu:hover > a::after {
     opacity: 1;
     transform: none !important;
   }
 
-  /* 3. THE DROP DOWN (MEGA MENU) */
   li.mega-menu { position: static !important; }
 
   li.mega-menu > ul {
@@ -88,7 +73,6 @@ p { color: purple; }
     box-shadow: var(--mega-shadow);
     z-index: 999;
 
-    /* Transition Logic */
     visibility: hidden; opacity: 0;
     transform: translateY(10px);
     transition: all 0.3s ease;
@@ -100,20 +84,18 @@ p { color: purple; }
     transform: translateY(0); pointer-events: auto;
   }
 
-  /* 4. COLUMNS & ALIGNMENT (Symmetrical & Flush Left) */
   li.mega-menu > ul > li {
     flex: 1;
     display: flex !important;
     flex-direction: column !important;
-    align-items: flex-start !important; /* FLUSH LEFT */
+    align-items: flex-start !important;
     padding: 0 15px !important;
     list-style: none !important;
   }
 
-  /* Headers (No Caps, Left Aligned) */
   li.mega-menu > ul > li > a {
     font-weight: var(--nav-bold) !important;
-    text-transform: none !important; /* REMOVE ALL CAPS */
+    text-transform: none !important;
     width: 100%;
     margin-bottom: 15px !important;
     padding: 0 0 8px 0 !important;
@@ -121,7 +103,6 @@ p { color: purple; }
     text-decoration: none !important;
   }
 
-  /* Sub-Links (Vertical List) */
   li.mega-menu > ul > li ul {
     display: flex !important;
     flex-direction: column !important;
