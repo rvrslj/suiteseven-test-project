@@ -30,30 +30,30 @@
 @media (min-width: 960px) {
 
   .nav-primary, .nav-menu, header, .banner {
-    overflow: visible !important;
+    overflow: visible;
     position: relative;
     z-index: 100;
   }
 
   .nav-primary ul, .nav-menu ul, ul.menu {
-    display: flex !important;
-    flex-direction: row !important;
+    display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
     width: 100%;
     max-width: 1200px;
-    list-style: none !important;
-    margin: 0 auto !important;
-    padding: 0 40px !important;
+    list-style: none;
+    margin: 0 auto;
+    padding: 0 40px;
   }
 
   /* --- MENU BAR TEXT STYLE --- */
   .nav-primary ul > li > a,
   ul.menu > li > a {
-    display: inline-flex !important;
-    align-items: center !important;
+    display: inline-flex;
+    align-items: center;
     padding: 10px 18px;
-    text-decoration: none !important;
+    text-decoration: none;
     color: var(--link-color);
     font-family: var(--font-fira);
     font-size: var(--menu-font-size);
@@ -64,14 +64,14 @@
   /* --- GLOBAL HOVER: BLACK TEXT FOR ALL ITEMS --- */
   .nav-primary ul > li:hover > a,
   ul.menu > li:hover > a {
-    color: #000000 !important;
-    font-weight: var(--nav-bold) !important;
+    color: #000000;
+    font-weight: var(--nav-bold);
   }
 
   /* --- CHEVRON: GOLD & LEVEL WITH TEXT --- */
   li.mega-menu > a::after {
-    content: '\2304' !important;
-    display: inline-flex !important;
+    content: '\2304';
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     font-family: Arial, sans-serif !important; /* Thin outline style */
@@ -85,12 +85,12 @@
 
   /* Keep chevron gold when text turns black */
   li.mega-menu:hover > a::after {
-    color: var(--chevron-color) !important;
-    transform: none !important;
+    color: var(--chevron-color);
+    transform: none;
   }
 
   li.mega-menu {
-    position: static !important;
+    position: static;
   }
 
   /* --- FULL WIDTH BREAKOUT --- */
@@ -105,8 +105,8 @@
     /* Ensure it doesn't inherit a smaller width from parents */
     min-width: 100vw !important;
 
-    display: flex !important;
-    flex-direction: row !important;
+    display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: flex-start;
 
@@ -133,54 +133,54 @@
 
   li.mega-menu > ul > li {
     flex: 1 1 0;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    padding: 0 20px !important;
-    list-style: none !important;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 20px;
+    list-style: none;
   }
 
   /* --- COLUMN HEADERS: Fira Sans 20 Book --- */
   li.mega-menu > ul > li > a {
-    font-family: var(--font-fira) !important;
-    font-weight: var(--header-font-weight) !important;
-    font-size: var(--header-font-size) !important;
-    text-transform: none !important;
+    font-family: var(--font-fira);
+    font-weight: var(--header-font-weight);
+    font-size: var(--header-font-size);
+    text-transform: none;
     letter-spacing: normal;
     color: var(--link-color);
     width: 100%;
-    margin-bottom: 15px !important;
-    padding: 0 !important;
-    border-bottom: none !important;
-    text-decoration: none !important;
+    margin-bottom: 15px;
+    padding: 0;
+    border-bottom: none;
+    text-decoration: none;
     white-space: nowrap;
   }
 
   li.mega-menu > ul > li ul {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    padding: 0 !important;
-    margin: 0 !important;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    margin: 0;
     width: 100%;
   }
 
   /* --- COLUMN CONTENT: Fira Sans Light 18 --- */
   li.mega-menu > ul > li ul li a {
-    display: block !important;
-    padding: 5px 0 !important;
-    font-family: var(--font-fira) !important;
-    font-weight: var(--content-font-weight) !important;
-    font-size: var(--content-font-size) !important;
+    display: block;
+    padding: 5px 0;
+    font-family: var(--font-fira);
+    font-weight: var(--content-font-weight);
+    font-size: var(--content-font-size);
     color: #666;
-    text-decoration: none !important;
+    text-decoration: none;
     transition: transform 0.2s ease, color 0.2s ease;
     white-space: nowrap;
   }
 
   /* Dropdown links hover (Back to Brand Gold) */
   li.mega-menu > ul > li ul li a:hover {
-    color: var(--link-color) !important;
-    font-weight: var(--header-font-weight) !important;
+    color: var(--link-color);
+    font-weight: var(--header-font-weight);
   }
 }
