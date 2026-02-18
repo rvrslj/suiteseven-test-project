@@ -198,4 +198,9 @@ header, .nav-primary {
     font-weight: var(--header-font-weight);
     transform: translateX(5px); /* Subtle slide effect on hover */
   }
-}
+
+  li.mega-menu > ul > li.image-submenu > a {
+    font-size: 30px !important; /* Increase this to your preferred size */
+    font-weight: var(---font-weight);
+    transition: color 0.3s ease;
+  }
