@@ -131,10 +131,24 @@
     list-style: none;
   }
 
-  .image-submenu {
-    /*ul > li > a {*/
-    /*  color: red !important;*/
-    /*}*/
+  li.mega-menu ul li.image-submenu ul {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    width: 100%;
+  }
+
+  li.mega-menu ul li.image-submenu ul li {
+    display: block;
+    padding: 0;
+    width: 100%;
+  }
+
+  .image-submenu img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
   }
 
   li.mega-menu > ul > li > a {
