@@ -12,7 +12,7 @@
 
 :root {
   --nav-bold: 600;
-  --mega-bg: #ffffff;
+  --mega-bg: #F8F7F5;
   --mega-shadow: 0px 20px 40px rgba(0, 0, 0, 0.08);
   --mega-padding: 30px 40px;
   --link-color: var(--color-charcoal);
@@ -24,6 +24,12 @@
   --content-font-size: 18px;
   --content-font-weight: 300;
   --menu-font-size: 15px;
+}
+
+/* Base Header Styling */
+header, .nav-primary {
+  background-color: var(--mega-bg);
+  border-bottom: 1px solid var(--border-color);
 }
 
 @media (min-width: 960px) {
@@ -50,7 +56,7 @@
   ul.menu > li > a {
     display: inline-flex;
     align-items: center;
-    padding: 10px 18px;
+    padding: 20px 18px; /* Increased vertical padding for a substantial bar */
     text-decoration: none;
     color: var(--link-color);
     font-family: var(--font-fira);
@@ -94,7 +100,6 @@
     left: 0;
     right: 0;
     width: 100vw;
-
     min-width: 100vw;
 
     display: flex;
@@ -102,10 +107,10 @@
     justify-content: center;
     align-items: flex-start;
 
-    background: #ffffff;
+    background: var(--mega-bg);
     padding: 60px 10%;
     box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.1);
-    border-top: 1px solid #E5E7EB;
+    border-top: 1px solid var(--border-color);
     z-index: 99999;
 
     visibility: hidden;
@@ -149,6 +154,7 @@
     height: auto;
     object-fit: cover;
     display: block;
+    border-radius: 4px; /* Added subtle rounding for the off-white aesthetic */
   }
 
   li.mega-menu > ul > li > a {
@@ -190,5 +196,6 @@
   li.mega-menu > ul > li ul li a:hover {
     color: var(--link-color);
     font-weight: var(--header-font-weight);
+    transform: translateX(5px); /* Subtle slide effect on hover */
   }
 }
